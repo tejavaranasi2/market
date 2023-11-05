@@ -1,6 +1,7 @@
 import sys
 sys.path.append("../../data/")
-import yfin.yfin as yf
+import yfin.yfin as yf_eq
+import yfin.yfin_options as yf_opt
 import numpy as np
 
 def get_distri(dat):

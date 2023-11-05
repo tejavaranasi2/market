@@ -15,13 +15,17 @@ def get_open_close_with_time(sym,t):
 
   return {"open":np.array(op),"close":np.array(cl)}
 
+def get_current_price(symbol):
+    ticker = yf.Ticker(symbol)
+    todays_data = ticker.history(period='1d')
+    return todays_data['Close'][0]
 
 def get_curr_cost(sym_lst):
    to_ret=[]
    for sym in sym_lst:
-    stock = yf.Ticker(sym)
-  
-    price = stock.info['regularMarketOpen']
+    #print(stock.info)
+    price = get_current_price(sym)
+    
     to_ret.append(price)
    return to_ret
 
